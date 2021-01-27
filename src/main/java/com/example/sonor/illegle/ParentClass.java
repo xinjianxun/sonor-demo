@@ -36,7 +36,7 @@ public class ParentClass {
         String a = "123";
         String b = a +"456";
         Long warn = 1l;
-        long warn2 = 2L;
+        long warn2 = 22L;
 
 //        String[] str = new String[] { "chen", "yang", "hao" };
 //        List<String> list =  Arrays.asList(str);
