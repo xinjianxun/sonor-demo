@@ -1,26 +1,17 @@
-pipeline{
+#!/usr/bin/env groovy
+final def releaseTag = (env.TAG_NAME ?: env.BRANCH_NAME).replace("/", "-")
+pipeline {
     agent any
+    tools {
+        maven 'maven3'
+    }
     stages {
-        stage('Build') {
-            steps{
-                echo 'This is a build step'
+        stage("maven 编译") {
+            steps {
+                echo "releaseTag:${releaseTag}"
+                echo 'Building..'
+                sh 'mvn clean package -Dmaven.test.skip'
             }
         }
-        stage('Test') {
-            steps{
-                echo 'This is a test step'
-            }
-        }
-        stage('Deploy') {
-            steps{
-                echo 'This is a deploy step'
-            }
-        }
-        stage('Chinese test') {
-            steps{
-                echo '中文乱码测试'
-            }
-        }
-
     }
 }
