@@ -14,7 +14,7 @@ pipeline {
         stage('代码扫描') {
             steps {
                 echo 'scan static code'
-                bat 'mvn sonor:sonor -Dsonar.projectKey=${releaseTag}'
+                bat 'mvn sonor:sonor'
             }
         }
     }
