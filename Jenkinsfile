@@ -5,7 +5,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     agent {
-        label 'main'
+        label 'master'
     }
 
     environment {
