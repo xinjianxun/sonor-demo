@@ -16,5 +16,11 @@ pipeline{
                 echo 'This is a deploy step'
             }
         }
+        stage('Chinese test') {
+            steps{
+                echo '中文乱码测试'
+            }
+        }
+
     }
 }
