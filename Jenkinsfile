@@ -3,7 +3,7 @@ final def releaseTag = (env.TAG_NAME ?: env.BRANCH_NAME).replace("/", "-")
 pipeline {
     agent any
     tools {
-        maven 'maven3'
+        maven 'MyMaven'
     }
     stages {
         stage("maven 编译") {
