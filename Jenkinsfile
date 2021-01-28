@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo "releaseTag:${releaseTag}"
                 echo 'Building..'
-                bat 'sonar:sonar'
+                bat 'mvn clean package -Dmaven.test.skip'
             }
         }
     }
