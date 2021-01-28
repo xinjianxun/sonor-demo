@@ -118,4 +118,15 @@
 		</where>
 		ORDER BY `user`.create_time DESC
 	</select>
+
+	<select id="illegleGetUserVoById" resultMap="userVoResultMap">
+		SELECT
+		*
+		FROM
+		sys_user AS `user`
+		WHERE
+		`user`.user_id = #{id}
+		and 1=1
+	</select>
+
 </mapper>
