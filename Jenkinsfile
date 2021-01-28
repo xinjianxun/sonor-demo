@@ -9,6 +9,13 @@ pipeline {
                 echo 'Building..'
                 bat 'mvn clean package -Dmaven.test.skip'
             }
+
+        }
+        stage('代码扫描') {
+            steps {
+                echo 'scan static code'
+                bat 'mvn sonor:sonor -Dsonar.projectKey=${releaseTag}'
+            }
         }
     }
 }
