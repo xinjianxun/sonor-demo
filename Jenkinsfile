@@ -14,7 +14,7 @@ pipeline {
         stage('代码扫描') {
             steps {
                 echo 'scan static code'
-                echo  "JOBNAME:${POM_ARTIFACTID}"
+                echo  "ProJectName:${POM_ARTIFACTID}"
 
             }
         }
