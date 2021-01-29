@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 final def releaseTag = (env.TAG_NAME ?: env.BRANCH_NAME).replace("/", "-")
+final def projectName = currentBuild.projectName
 pipeline {
     agent any
     stages {
@@ -14,7 +15,10 @@ pipeline {
         stage('代码扫描') {
             steps {
                 echo 'scan static code'
-                echo  "WORKSPACE:${currentBuild.projectName}"
+                echo  "projectName:${currentBuild.projectName}"
+                echo  "fullProjectName:${currentBuild.fullProjectName}"
+                echo  "displayName:${currentBuild.displayName}"
+                echo  "fullDisplayName:${currentBuild.fullDisplayName}"
 
             }
         }
