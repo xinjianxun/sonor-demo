@@ -15,10 +15,7 @@ pipeline {
         stage('代码扫描') {
             steps {
                 echo 'scan static code'
-                echo  "projectName:${projectName}"
-                echo  "fullProjectName:${currentBuild.fullProjectName}"
-                echo  "displayName:${currentBuild.displayName}"
-                echo  "fullDisplayName:${currentBuild.fullDisplayName}"
+                bat "mvn sonar:sonar -Dsonar.projectKey=${projectName}"
 
             }
         }
