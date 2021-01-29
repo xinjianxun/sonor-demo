@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 final def releaseTag = (env.TAG_NAME ?: env.BRANCH_NAME).replace("/", "-")
-final def projectName = currentBuild.projectName
+final def projectName = currentBuild.fullDisplayName.replace("/", "-")
 pipeline {
     agent any
     stages {
@@ -15,10 +15,7 @@ pipeline {
         stage('代码扫描') {
             steps {
                 echo 'scan static code'
-                echo  "projectName:${currentBuild.projectName}"
-                echo  "fullProjectName:${currentBuild.fullProjectName}"
-                echo  "displayName:${currentBuild.displayName}"
-                echo  "fullDisplayName:${currentBuild.fullDisplayName}"
+                bat "mvn sonar:sonar -Dsonar.projectKey=${projectName} -Dsonar.projectName=${projectName}"
 
             }
         }
