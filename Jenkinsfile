@@ -14,7 +14,7 @@ pipeline {
         stage('代码扫描') {
             steps {
                 echo 'scan static code'
-                echo  "WORKSPACE:${projectName}"
+                echo  "WORKSPACE:${currentBuild.projectName}"
 
             }
         }
