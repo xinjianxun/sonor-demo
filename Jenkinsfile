@@ -12,7 +12,7 @@ pipeline {
             }
 
         }
-        stage('代码扫描') {
+        stage('代码检查') {
             steps {
                 echo 'scan static code'
                 bat "mvn sonar:sonar -Dsonar.projectKey=${projectName} -Dsonar.projectName=${projectName}"
